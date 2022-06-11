@@ -5,6 +5,11 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 import EqualizerOutlinedIcon from "@mui/icons-material/EqualizerOutlined";
 import CrisisAlertOutlinedIcon from "@mui/icons-material/CrisisAlertOutlined";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
+import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import StarPurple500OutlinedIcon from "@mui/icons-material/StarPurple500Outlined";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AddBoxIcon from "@mui/icons-material/AddBox";
 function App() {
     return (
         <div className="App">
@@ -35,7 +40,40 @@ function App() {
                     <p>Invite Teammates</p>
                 </button>
             </div>
-            <div className="Main_View"></div>
+            <div className="Main_View">
+                <div className="Main_Header">
+                    <div className="Header_Left">
+                        <div className="Task_Heading">
+                            <div className="Task_Heading-Top">
+                                <h2>Customer Stories - Q4</h2>
+                                <button>
+                                    <KeyboardArrowDownOutlinedIcon id="Heading_Button-Icons" />
+                                </button>
+                                <button>
+                                    <InfoOutlinedIcon id="Heading_Button-Icons" />
+                                </button>
+                                <button>
+                                    <StarPurple500OutlinedIcon id="Heading_Button-Icons" />
+                                </button>
+                            </div>
+                            <div className="Task_Heading-Bottom">
+                                <p id="Box-Green"></p>
+                                <p id="Task_Status">On Track</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="Header_Right">
+                        <button>Share</button>
+                        <input type={"text"} placeholder="Search" />
+                        <button>
+                            <p>&#x2613;</p>
+                        </button>
+                        <button>
+                            <AccountCircleIcon />
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
