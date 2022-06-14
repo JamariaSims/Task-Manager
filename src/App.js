@@ -10,6 +10,8 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import StarPurple500OutlinedIcon from "@mui/icons-material/StarPurple500Outlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddBoxIcon from "@mui/icons-material/AddBox";
+import ShareIcon from "@mui/icons-material/Share";
+import SearchIcon from "@mui/icons-material/Search";
 function App() {
     return (
         <div className="App">
@@ -63,15 +65,39 @@ function App() {
                         </div>
                     </div>
                     <div className="Header_Right">
-                        <button>Share</button>
-                        <input type={"text"} placeholder="Search" />
-                        <button>
-                            <p>&#x2613;</p>
-                        </button>
-                        <button>
-                            <AccountCircleIcon />
-                        </button>
+                        <div className="Header_Right-Container">
+                            <button id="Button-Share">
+                                <ShareIcon id="Icon-Share" />
+                                <p id="Tag-Share">Share</p>
+                            </button>
+                            <input
+                                id={"Search-Bar"}
+                                type={"text"}
+                                placeholder={"  Search"}
+                            />
+                            <button id={"Button-Add-New"}>
+                                <p>+</p>
+                            </button>
+                            <button id={"Button-Profile"}>
+                                <AccountCircleIcon id="Icon-Profile" />
+                            </button>
+                        </div>
                     </div>
+                </div>
+                <div className="Navigation">
+                    <div className="Navigation_Container">
+                        <a>Overview</a>
+                        <a>List</a>
+                        <a>Board</a>
+                        <a>Timeline</a>
+                        <a>Calender</a>
+                        <a>Dashboard</a>
+                        <a>More...</a>
+                    </div>
+                    <button id="Button-Add_Chart">
+                        <label id="Icon-Add-Chart">+</label>
+                        <label id="Tag-Add-Chart">Add Chart</label>
+                    </button>
                 </div>
             </div>
         </div>
