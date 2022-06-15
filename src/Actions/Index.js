@@ -8,7 +8,7 @@
 export const ADD_TASK = "ADD_TASK";
 
 export const addTask = (task, tasks) => {
-    task.taskId = tasks.length;
+    task.id = tasks.length;
     return { type: ADD_TASK, payload: task };
 };
 

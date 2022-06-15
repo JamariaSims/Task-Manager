@@ -2,6 +2,7 @@ import { ADD_TASK, DELETE_TASK } from "../Actions/Index";
 
 export const initialState = {
     tasks: [],
+    completedTasks: [],
 };
 
 const Reducer = (state = initialState, action) => {
@@ -12,7 +13,7 @@ const Reducer = (state = initialState, action) => {
         }
         case DELETE_TASK: {
             const updatedTasks = tasks.filter((task) => {
-                return task.taskID !== action.payload;
+                return task.id !== action.payload;
             });
             return { ...state, tasks: updatedTasks };
         }

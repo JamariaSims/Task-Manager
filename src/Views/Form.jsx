@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { addTask } from "../Actions/Index";
 
 const initialState = {
-    taskName: "",
-    taskDescription: "",
-    taskDeadline: "",
-    taskPriority: "Normal",
+    name: "",
+    description: "",
+    deadline: "",
+    priority: "Normal",
 };
 function Form(props) {
     const { tasks } = props;
@@ -34,24 +34,24 @@ function Form(props) {
                 value={state.taskName}
                 placeholder="Name"
                 onChange={onInputChange}
-                name="taskName"
+                name="name"
                 required
             />
             <label>Task Description:</label>
             <input
                 type={"text"}
-                value={state.taskDescription}
+                value={state.description}
                 placeholder="Description"
                 onChange={onInputChange}
-                name="taskDescription"
+                name="description"
                 required
             />
             <label>Deadline</label>
             <input
                 type={"date"}
-                value={state.taskDeadline}
+                value={state.deadline}
                 onChange={onInputChange}
-                name="taskDeadline"
+                name="deadline"
                 required
             />
             <label>Priority</label>
@@ -63,8 +63,8 @@ function Form(props) {
                         type={"radio"}
                         value={"Low"}
                         onChange={onInputChange}
-                        name="taskPriority"
-                        checked={state.taskPriority === "Low"}
+                        name="priority"
+                        checked={state.priority === "Low"}
                     />
                 </label>
 
@@ -75,8 +75,8 @@ function Form(props) {
                         type={"radio"}
                         value={"Normal"}
                         onChange={onInputChange}
-                        name="taskPriority"
-                        checked={state.taskPriority === "Normal"}
+                        name="priority"
+                        checked={state.priority === "Normal"}
                     />
                 </label>
 
@@ -87,8 +87,8 @@ function Form(props) {
                         type={"radio"}
                         value={"Important"}
                         onChange={onInputChange}
-                        name="taskPriority"
-                        checked={state.taskPriority === "Important"}
+                        name="priority"
+                        checked={state.priority === "Important"}
                     />
                 </label>
 
@@ -99,8 +99,8 @@ function Form(props) {
                         type={"radio"}
                         value={"Critical"}
                         onChange={onInputChange}
-                        name="taskPriority"
-                        checked={state.taskPriority === "Critical"}
+                        name="priority"
+                        checked={state.priority === "Critical"}
                     />
                 </label>
             </div>

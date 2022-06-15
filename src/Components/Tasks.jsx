@@ -1,9 +1,13 @@
 import React from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import Task from "./Task";
 
 function Tasks(props) {
     const { tasks } = props;
+    useEffect(() => {
+        console.log(tasks);
+    }, [tasks]);
     return (
         <div>
             <h1>Tasks</h1>
