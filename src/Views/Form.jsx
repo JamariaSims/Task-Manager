@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addTask } from "../Actions/Index";
 
 const initialState = {
     taskName: "",
@@ -7,7 +9,7 @@ const initialState = {
     taskPriority: "Normal",
 };
 function Form(props) {
-    const { tasks, setTasks } = props;
+    const { tasks } = props;
     const [state, setState] = useState(initialState);
 
     const onInputChange = (event) => {
@@ -18,7 +20,7 @@ function Form(props) {
     };
     const onInputSubmit = (event) => {
         event.preventDefault();
-        setTasks([...tasks, state]);
+        props.addTask(state, tasks);
         setState(initialState);
     };
     const onInputReset = () => {
@@ -118,4 +120,9 @@ function Form(props) {
     );
 }
 
-export default Form;
+const mapStateToProps = (state) => {
+    return {
+        tasks: state.tasks,
+    };
+};
+export default connect(mapStateToProps, { addTask })(Form);

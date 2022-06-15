@@ -11,6 +11,12 @@ function Task(props) {
             <p>{task.taskDescription}</p>
             <p>{task.taskDeadline}</p>
             <p>{task.taskPriority}</p>
+            <p>{task.taskId}</p>
+            <div className="ButtonGroup">
+                <button>Delete</button>
+                <button>View</button>
+                <button>Complete</button>
+            </div>
         </div>
     );
 }
