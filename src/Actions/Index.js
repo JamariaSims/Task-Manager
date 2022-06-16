@@ -24,3 +24,9 @@ export const VIEW_TASK = "VIEW_TASK";
 export const viewTask = (id) => {
   return { type: VIEW_TASK, payload: id };
 };
+
+export const COMPLETE_TASK = "COMPLETE_TASK";
+
+export const completeTask = (id) => {
+  return { type: COMPLETE_TASK, payload: id };
+};

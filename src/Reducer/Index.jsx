@@ -1,4 +1,9 @@
-import { ADD_TASK, DELETE_TASK, VIEW_TASK } from "../Actions/Index";
+import {
+  ADD_TASK,
+  COMPLETE_TASK,
+  DELETE_TASK,
+  VIEW_TASK,
+} from "../Actions/Index";
 import { dummyTasks } from "../Data/TasksDummyData";
 
 export const initialState = {
@@ -8,7 +13,7 @@ export const initialState = {
 };
 
 const Reducer = (state = initialState, action) => {
-  const { tasks } = state;
+  const { tasks, completedTasks } = state;
   switch (action.type) {
     case ADD_TASK: {
       return { ...state, tasks: [...tasks, action.payload] };
@@ -24,9 +29,20 @@ const Reducer = (state = initialState, action) => {
       const currentTask = tasks.map((task) => {
         return task.id === action.payload;
       });
-
       return { ...state, selectedTask: currentTask };
     }
+
+    case COMPLETE_TASK: {
+      const currentTask = tasks.map((task) => {
+        return task.id === action.payload;
+      });
+
+      return {
+        ...state,
+        completedTasks: [...completedTasks, currentTask],
+      };
+    }
+
     default:
       return state;
   }

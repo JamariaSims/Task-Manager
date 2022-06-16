@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteTask, viewTask } from "../Actions/Index";
+import { completeTask, deleteTask, viewTask } from "../Actions/Index";
 import { Link } from "react-router-dom";
 function Task(props) {
   const { task } = props;
@@ -10,6 +10,10 @@ function Task(props) {
   };
   const onTaskView = () => {
     props.viewTask(id);
+  };
+
+  const onTaskComplete = () => {
+    props.completeTask(id);
   };
   return (
     <div>
@@ -24,7 +28,7 @@ function Task(props) {
         <Link to={`/Task/${task.id}`} onClick={onTaskView}>
           View
         </Link>
-        <button>Complete</button>
+        <button onClick={onTaskComplete}>Complete</button>
       </div>
     </div>
   );
@@ -34,4 +38,6 @@ const mapStateToProps = (state) => {
     tasks: state.tasks,
   };
 };
-export default connect(mapStateToProps, { deleteTask, viewTask })(Task);
+export default connect(mapStateToProps, { deleteTask, viewTask, completeTask })(
+  Task
+);
