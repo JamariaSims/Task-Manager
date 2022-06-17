@@ -1,22 +1,18 @@
 import React from "react";
-import { useEffect } from "react";
 import { connect } from "react-redux";
 import Task from "./Task";
 
 function Tasks(props) {
     const { tasks } = props;
-    useEffect(() => {
-        console.log(tasks);
-    }, [tasks]);
     return (
         <div>
             <h1>Tasks</h1>
             <div>
                 {tasks.length >= 1 ? (
-                    <div>
+                    <div className="Task_Container">
                         {tasks.map((task, index) => {
                             return (
-                                <div key={index}>
+                                <div key={task.id}>
                                     <Task task={task} />
                                 </div>
                             );

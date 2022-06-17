@@ -10,25 +10,25 @@ import Error from "./Views/Error";
 import { useEffect } from "react";
 
 function App(props) {
-  const { tasks, completedTasks } = props;
-  useEffect(() => {
-    console.log(tasks, completedTasks);
-  }, [tasks, completedTasks]);
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Task/:id" element={<TaskDisplay />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </Router>
-  );
+    const { completedTasks } = props;
+    useEffect(() => {
+        console.log(completedTasks);
+    }, [completedTasks]);
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/Task/:id" element={<TaskDisplay />} />
+                <Route path="*" element={<Error />} />
+            </Routes>
+        </Router>
+    );
 }
 
 const mapStateToProps = (state) => {
-  return {
-    tasks: state.tasks,
-    completedTasks: state.tasks,
-  };
+    return {
+        tasks: state.tasks,
+        completedTasks: state.completedTasks,
+    };
 };
 export default connect(mapStateToProps)(App);

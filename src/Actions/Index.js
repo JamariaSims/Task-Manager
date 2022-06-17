@@ -5,28 +5,23 @@
     View Task
 
 */
-
 export const ADD_TASK = "ADD_TASK";
 
-export const addTask = (task, tasks) => {
-  task.id = tasks.length;
-  return { type: ADD_TASK, payload: task };
+export const addTask = (task) => {
+    console.log(ADD_TASK, task);
+    return { type: ADD_TASK, payload: task };
 };
 
 export const DELETE_TASK = "DELETE_TASK";
 
 export const deleteTask = (id) => {
-  return { type: DELETE_TASK, payload: id };
-};
-
-export const VIEW_TASK = "VIEW_TASK";
-
-export const viewTask = (id) => {
-  return { type: VIEW_TASK, payload: id };
+    console.log(DELETE_TASK, id);
+    return { type: DELETE_TASK, payload: id };
 };
 
 export const COMPLETE_TASK = "COMPLETE_TASK";
 
 export const completeTask = (id) => {
-  return { type: COMPLETE_TASK, payload: id };
+    console.log(COMPLETE_TASK, id);
+    return { type: COMPLETE_TASK, payload: id };
 };
