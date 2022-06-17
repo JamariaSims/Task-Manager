@@ -13,18 +13,25 @@ function Task(props) {
         props.completeTask(id);
     };
     return (
-        <div>
-            <p>{name}</p>
-            <p>{description}</p>
-            <p>{deadline}</p>
-            <p>{priority}</p>
-            <p>{id}</p>
-            <p>{status}</p>
-            <div className="ButtonGroup">
-                <button onClick={onDelete}>Delete</button>
-                <Link to={`/Task/${task.id}`}>View</Link>
-                <button onClick={onTaskComplete}>Complete</button>
+        <div className="Task_Container">
+            <p className="TC-Name">{name}</p>
+            <p className="TC-Description">{description}</p>
+            <div className="Task_Container-Status">
+                <p>{status}</p>
+                <p>{deadline}</p>
             </div>
+            <div className="TC-ButtonGroup">
+                <button className="TC-Button-" onClick={onDelete}>
+                    Delete
+                </button>
+                <Link className="TC-Button-" to={`/Task/${task.id}`}>
+                    View
+                </Link>
+                <button className="TC-Button-" onClick={onTaskComplete}>
+                    Complete
+                </button>
+            </div>
+            <p className="TC-Priority">{priority}</p>
         </div>
     );
 }
