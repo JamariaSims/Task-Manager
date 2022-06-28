@@ -5,11 +5,12 @@ import { addTask } from "../Actions/Index";
 import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
-  name: "",
-  description: "",
-  deadline: "",
-  priority: "Normal",
-  status: "IN_PROGRESS",
+    name: "",
+    description: "",
+    deadline: "",
+    priority: "Normal",
+    status: "In Progress",
+    group: "None",
 };
 function Form(props) {
   const [task, setTask] = useState(initialState);
