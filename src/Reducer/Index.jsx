@@ -2,16 +2,11 @@ import { ADD_TASK, COMPLETE_TASK, DELETE_TASK } from "../Actions/Index";
 import { dummyTasks } from "../Data/TasksDummyData";
 
 export const initialState = {
+    username: "",
+    password: "",
     tasks: [],
     completedTasks: [],
     groups: [],
-    userData: {
-        username: "",
-        password: "",
-        tasks: [],
-        completedTasks: [],
-        groups: [],
-    },
 };
 
 const Reducer = (state = initialState, action) => {
