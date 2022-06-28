@@ -36,31 +36,45 @@ html {
     height: 100vh;
     position: absolute;
 }
-
 /*
     Navigation CSS
 */
 .Navigation_Container {
+
     display: flex;
+
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1%;
+
 }
 .Navigation_Container h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 .Nav_Links {
+
     display: flex;
     width: 30%;
     height: max-content;
     margin: 0% auto;
     gap: 1rem;
+
+  display: flex;
+  padding: 1%;
+  width: 30%;
+  justify-content: space-between;
+  background-color: rgb(78, 230, 174);
+
 }
 .Nav_Account-Settings {
-    display: flex;
-    padding: 1%;
-    width: 10%;
-    justify-content: space-between;
-    background-color: rgb(78, 230, 174);
+  display: flex;
+  padding: 1%;
+  width: 10%;
+  justify-content: space-between;
+  background-color: rgb(78, 230, 174);
 }
 .Navigation_Container a {
+
     text-decoration: none;
     color: blue;
     font-size: 0.9rem;
@@ -69,11 +83,18 @@ html {
     padding-inline: 8%;
     border-radius: 0.8rem;
     border: solid black 1px;
+
+  text-decoration: none;
+  color: blue;
+  font-size: 1rem;
+  margin: 0% auto;
+
 }
 /*
     Form CSS 
 */
 .Form_Container {
+
     height: 550px;
     width: 20%;
     margin: 0% auto;
@@ -107,17 +128,26 @@ select {
     border-radius: 0.5rem;
     padding: 2%;
     margin: 2%;
+
+  width: 30%;
+  margin: 0% auto;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+
 }
 .Form_Priority {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 .Tasks_Container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
 }
 .Task_Container {
+
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -248,4 +278,47 @@ body {
     100% {
         background-position: 0% 50%;
     }
+
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid black;
+}
+.Task_Container p {
+  padding: 0.5rem;
+}
+.Task_Container-Status {
+  display: flex;
+  justify-content: space-around;
+}
+.TC-Name {
+  font-size: 1rem;
+}
+.TC-Description {
+  font-size: 1rem;
+}
+.TC-Priority {
+  margin: 0% auto;
+}
+.TC-ButtonGroup {
+  display: flex;
+  justify-content: space-around;
+}
+[class*="TC-Button-"] {
+  background: none;
+  text-decoration: none;
+  color: black;
+  padding: 1%;
+  padding-inline: 4%;
+}
+.Dashboard-Header {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.Dashboard-Header p {
+  padding-bottom: 1rem;
 }
