@@ -10,6 +10,7 @@ const initialState = {
     deadline: "",
     priority: "Normal",
     status: "In Progress",
+    group: "None",
 };
 function Form(props) {
     const [task, setTask] = useState(initialState);

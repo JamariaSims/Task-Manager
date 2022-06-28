@@ -14,10 +14,13 @@ function Task(props) {
     };
     return (
         <div className="Task_Container">
+            <p id="TAG-ProjectName">Project Name:</p>
             <p className="TC-Name">{name}</p>
+            <p id="TAG-Description">Description:</p>
             <p className="TC-Description">{description}</p>
             <div className="Task_Container-Status">
                 <p>{status}</p>
+                <p className="TC-Priority">{priority}</p>
                 <p>{deadline}</p>
             </div>
             <div className="TC-ButtonGroup">
@@ -31,7 +34,6 @@ function Task(props) {
                     Complete
                 </button>
             </div>
-            <p className="TC-Priority">{priority}</p>
         </div>
     );
 }
