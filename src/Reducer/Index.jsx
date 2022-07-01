@@ -1,12 +1,8 @@
 import { ADD_TASK, COMPLETE_TASK, DELETE_TASK } from "../Actions/Index";
-import { dummyTasks } from "../Data/TasksDummyData";
 
 export const initialState = {
     username: "",
-    password: "",
     tasks: [],
-    completedTasks: [],
-    groups: [],
 };
 
 const Reducer = (state = initialState, action) => {
@@ -23,14 +19,11 @@ const Reducer = (state = initialState, action) => {
         }
 
         case COMPLETE_TASK: {
-            const currentTask = tasks.find((task) => {
-                return task.id === action.payload;
-            });
+            // const currentTask = tasks.find((task) => {
+            //     return task.id === action.payload;
+            // });
 
-            return {
-                ...state,
-                completedTasks: [...completedTasks, currentTask],
-            };
+            return state;
         }
 
         default:
