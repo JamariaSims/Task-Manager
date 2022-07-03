@@ -1,19 +1,15 @@
 import { Login } from "@mui/icons-material";
 import React from "react";
 import { connect } from "react-redux";
+import SignUpPage from "./SignUpPage";
 
-function WalledGarden() {
-    return (
-        <div>
-            <Login />
-        </div>
-    );
+function WalledGarden(props) {
+    return <div>{!props.username ? <Login /> : <SignUpPage />}</div>;
 }
 
 const mapStateToProps = (state) => {
     return {
-        tasks: state.tasks,
-        completedTasks: state.completedTasks,
+        username: state.username,
     };
 };
 
