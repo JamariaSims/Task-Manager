@@ -1,71 +1,86 @@
+import { Label } from "@mui/icons-material";
+import { Button, ButtonGroup, Checkbox, Paper, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addTask } from "../Actions/Index";
-
-import { v4 as uuidv4 } from "uuid";
+import { loginToServer } from "../Actions/Index";
 
 const initialState = {
-    username: "",
-    password: "",
+  username: "",
+  password: "",
 };
 
-function LoginPage() {
-    const [userInfo, setUserInfo] = useState(initialState);
+function LoginPage(props) {
+  const [userInfo, setUserInfo] = useState(initialState);
 
-    const onInputChange = (event) => {
-        const { target } = event;
-        const { name, value } = target;
-        setUserInfo({ ...userInfo, [name]: value });
-    };
-    const onInputSubmit = (event) => {
-        event.preventDefault();
-    };
-    const onInputReset = (event) => {
-        event.preventDefault();
-        setUserInfo(initialState);
-    };
-    return (
-        <form className="Login-Form" onSubmit={onInputSubmit}>
-            <h1>Login to your account</h1>
-            <p>
-                Create a account? <a href="/SignUp">Sign Up</a>
-            </p>
-            <label id="Form-Label" htmlFor="Form-Name">
-                Username:
-            </label>
-            <input
-                type={"text"}
-                value={userInfo.username}
-                placeholder="Username"
-                onChange={onInputChange}
-                name="username"
-                id="username"
-                required
+  const onInputChange = (event) => {
+    const { target } = event;
+    const { name, value } = target;
+    setUserInfo({ ...userInfo, [name]: value });
+  };
+  const onInputSubmit = (event) => {
+    event.preventDefault();
+    props.loginToServer(userInfo);
+  };
+  const onInputReset = (event) => {
+    event.preventDefault();
+    setUserInfo(initialState);
+  };
+  return (
+    <div className="LF">
+      <Paper className="LF-Paper" elevation={4}>
+        <form className="LF-Form" onSubmit={onInputSubmit}>
+          <h1>Login to your account</h1>
+          <p>Welcome back! Please enter your details.</p>
+          <section className="LF-S1">
+            <label>Username</label>
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              type={"text"}
+              value={userInfo.username}
+              onChange={onInputChange}
+              name="username"
+              required
             />
-            <label htmlFor="Form-Description">Password:</label>
-            <input
-                type={"password"}
-                value={userInfo.password}
-                placeholder="Password"
-                onChange={onInputChange}
-                name="password"
-                id="password"
-                required
+            <label>Password</label>
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              type={"password"}
+              value={userInfo.password}
+              onChange={onInputChange}
+              name="password"
+              required
             />
-            <nav>
-                <button id="Button-Login" type="submit">
-                    Login
-                </button>
-                <button id="Button-Cancel" type="reset" onClick={onInputReset}>
-                    Cancel
-                </button>
-            </nav>
+            <div className="LF-S2">
+              <div className="LF-S2-Checkbox">
+                <Checkbox></Checkbox>
+                <label>Remember for 30 days</label>
+              </div>
+              <a href="#">Forgot password</a>
+            </div>
+          </section>
+
+          <br></br>
+
+          <ButtonGroup>
+            <Button color="success" onClick={onInputSubmit}>
+              Login
+            </Button>
+            <Button color="error">Cancel</Button>
+          </ButtonGroup>
         </form>
-    );
+        <p>
+          Don't have an account? <a href="/SignUp">Sign Up</a>
+        </p>
+        <br></br>
+      </Paper>
+    </div>
+  );
 }
 const mapStateToProps = (state) => {
-    return {
-        tasks: state.tasks,
-    };
+  return {
+    tasks: state.tasks,
+  };
 };
-export default connect(mapStateToProps, { addTask })(LoginPage);
+export default connect(mapStateToProps, { loginToServer })(LoginPage);

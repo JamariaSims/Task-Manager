@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 import SignUpPage from "./SignUpPage";
 
 function WalledGarden(props) {
-    return <div>{!props.username ? <Login /> : <SignUpPage />}</div>;
+  return <div>{!props.username == null ? <Login /> : <SignUpPage />}</div>;
 }
 
 const mapStateToProps = (state) => {
-    return {
-        username: state.username,
-    };
+  return {
+    username: state.username,
+  };
 };
 
 export default connect(mapStateToProps)(WalledGarden);

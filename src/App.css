@@ -1,307 +1,357 @@
 #root,
 html {
-    /*
+  /*
     Colors
 */
-    --Color1: hsl(0, 0%, 90%);
-    --Color2: hsl(0, 0%, 80%);
-    --Color3: hsl(0, 0%, 70%);
-    --Color4: hsl(0, 0%, 60%);
-    --Color5: hsl(0, 0%, 50%);
-    --Color6: hsl(0, 0%, 40%);
-    --Color7: hsl(0, 0%, 30%);
-    --Color8: hsl(0, 0%, 20%);
-    --Color9: hsl(0, 0%, 10%);
-    --Color10: hsl(0, 0%, 0%);
+  --Color1: hsl(0, 0%, 90%);
+  --Color2: hsl(0, 0%, 80%);
+  --Color3: hsl(0, 0%, 70%);
+  --Color4: hsl(0, 0%, 60%);
+  --Color5: hsl(0, 0%, 50%);
+  --Color6: hsl(0, 0%, 40%);
+  --Color7: hsl(0, 0%, 30%);
+  --Color8: hsl(0, 0%, 20%);
+  --Color9: hsl(0, 0%, 10%);
+  --Color10: hsl(0, 0%, 0%);
 
-    --ButtonColor1: hsl(218, 100%, 50%);
-    --ButtonColor2: hsl(218, 100%, 70%);
-    --ButtonColor3: hsl(0, 68%, 46%);
-    --ButtonColor4: hsl(0, 68%, 66%);
-    /*
+  --ButtonColor1: hsl(218, 100%, 50%);
+  --ButtonColor2: hsl(218, 100%, 70%);
+  --ButtonColor3: hsl(0, 68%, 46%);
+  --ButtonColor4: hsl(0, 68%, 66%);
+  /*
     Font Sizes
 */
-    --FontSize1: 0.7rem;
-    --FontSize2: 0.8rem;
-    --FontSize3: 1rem;
-    --FontSize4: 1.3rem;
-    --FontSize5: 1.5rem;
-    --FontSize6: 2rem;
-    --FontSize7: 2.5rem;
-    --FontSize8: 3rem;
-    --FontSize9: 3.2rem;
-    --FontSize10: 3.5rem;
+  --FontSize1: 0.7rem;
+  --FontSize2: 0.8rem;
+  --FontSize3: 1rem;
+  --FontSize4: 1.3rem;
+  --FontSize5: 1.5rem;
+  --FontSize6: 2rem;
+  --FontSize7: 2.5rem;
+  --FontSize8: 3rem;
+  --FontSize9: 3.2rem;
+  --FontSize10: 3.5rem;
 
-    width: 100%;
-    height: 100vh;
-    position: absolute;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
 }
 /*
     Navigation CSS
 */
 .Navigation_Container {
-    display: flex;
+  display: flex;
 
-    display: flex;
-    justify-content: space-around;
-    padding-top: 1%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1%;
 }
 .Navigation_Container h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 .Nav_Links {
-    display: flex;
-    width: 30%;
-    height: max-content;
-    margin: 0% auto;
-    gap: 1rem;
+  display: flex;
+  width: 30%;
+  height: max-content;
+  margin: 0% auto;
+  gap: 1rem;
 
-    display: flex;
-    padding: 1%;
-    width: 30%;
-    justify-content: space-between;
-    background-color: rgb(78, 230, 174);
+  display: flex;
+  padding: 1%;
+  width: 30%;
+  justify-content: space-between;
+  background-color: rgb(78, 230, 174);
 }
 .Nav_Account-Settings {
-    display: flex;
-    padding: 1%;
-    width: 10%;
-    justify-content: space-between;
-    background-color: rgb(78, 230, 174);
+  display: flex;
+  padding: 1%;
+  width: 10%;
+  justify-content: space-between;
+  background-color: rgb(78, 230, 174);
 }
 .Navigation_Container a {
-    text-decoration: none;
-    color: blue;
-    font-size: 0.9rem;
-    margin: 0% auto;
-    padding: 1%;
-    padding-inline: 8%;
-    border-radius: 0.8rem;
-    border: solid black 1px;
+  text-decoration: none;
+  color: blue;
+  font-size: 0.9rem;
+  margin: 0% auto;
+  padding: 1%;
+  padding-inline: 8%;
+  border-radius: 0.8rem;
+  border: solid black 1px;
 
-    text-decoration: none;
-    color: blue;
-    font-size: 1rem;
-    margin: 0% auto;
+  text-decoration: none;
+  color: blue;
+  font-size: 1rem;
+  margin: 0% auto;
 }
 /*
     Form CSS 
 */
 .Form_Container {
-    height: 550px;
-    width: 20%;
-    margin: 0% auto;
-    margin: 5% auto;
-    display: flex;
-    flex-direction: column;
-    padding-inline: 2%;
-    padding-block: 1%;
-    border-radius: 0.5rem;
-    border: solid hsl(28, 98%, 90%) 1px;
-    background-color: var(--Color2);
-    box-shadow: 15px 10px 15px hsl(28, 98%, 90%);
-    opacity: 95%;
+  height: 550px;
+  width: 20%;
+  margin: 0% auto;
+  margin: 5% auto;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 2%;
+  padding-block: 1%;
+  border-radius: 0.5rem;
+  border: solid hsl(28, 98%, 90%) 1px;
+  background-color: var(--Color2);
+  box-shadow: 15px 10px 15px hsl(28, 98%, 90%);
+  opacity: 95%;
 }
 .Form_Container input,
 select {
-    padding: 2%;
+  padding: 2%;
 
-    border-radius: 0.5rem;
-    border-color: hsl(0, 0%, 95%);
-    background-color: hsl(0, 0%, 98%);
+  border-radius: 0.5rem;
+  border-color: hsl(0, 0%, 95%);
+  background-color: hsl(0, 0%, 98%);
 }
 .Form_Container label {
-    color: hsl(0, 0%, 5%);
-    padding: 2%;
+  color: hsl(0, 0%, 5%);
+  padding: 2%;
 }
 .Form_Container button {
-    color: hsl(0, 0%, 15%);
-    border-color: hsl(0, 0%, 95%);
-    background-color: white;
-    border-radius: 0.5rem;
-    padding: 2%;
-    margin: 2%;
+  color: hsl(0, 0%, 15%);
+  border-color: hsl(0, 0%, 95%);
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 2%;
+  margin: 2%;
 
-    width: 30%;
-    margin: 0% auto;
-    display: flex;
-    flex-direction: column;
-    padding: 5%;
+  width: 30%;
+  margin: 0% auto;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
 }
 .Form_Priority {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 .Tasks_Container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
 }
 .Task_Container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 1.5rem;
-    width: 350px;
-    padding-block: 3%;
-    border-radius: 0.5rem;
-    border: solid hsl(28, 98%, 90%) 1px;
-    box-shadow: 5px 10px 15px hsl(28, 98%, 90%);
-    background-color: var(--Color2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 1.5rem;
+  width: 350px;
+  padding-block: 3%;
+  border-radius: 0.5rem;
+  border: solid hsl(28, 98%, 90%) 1px;
+  box-shadow: 5px 10px 15px hsl(28, 98%, 90%);
+  background-color: var(--Color2);
 }
 .Task_Container-Status {
-    display: flex;
-    justify-content: space-around;
-    width: 90%;
-    text-align: center;
-    margin: 0% auto;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  text-align: center;
+  margin: 0% auto;
 }
 .Task_Container-Status p {
-    margin: 0% auto;
+  margin: 0% auto;
 }
 .TC-Name {
-    font-size: 1.8rem;
-    padding-left: 5%;
+  font-size: 1.8rem;
+  padding-left: 5%;
 }
 .TC-Description {
-    font-size: 1rem;
-    width: 100%;
-    text-align: center;
-    padding-block: 5%;
-    margin: 0% auto;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+  padding-block: 5%;
+  margin: 0% auto;
 }
 .TC-ButtonGroup {
-    display: flex;
-    justify-content: space-around;
-    gap: 0.5rem;
-    padding-block: 5%;
+  display: flex;
+  justify-content: space-around;
+  gap: 0.5rem;
+  padding-block: 5%;
 }
 [class*="TC-Button-"],
 Link {
-    background: none;
-    text-decoration: none;
-    padding: 2%;
-    padding-inline: 8%;
-    color: hsl(0, 0%, 15%);
-    border: solid hsl(28, 98%, 90%) 1px;
-    border-color: hsl(28, 98%, 89%);
-    background-color: white;
-    border-radius: 0.9rem;
-    box-shadow: 5px 4px 5px hsl(28, 98%, 90%);
+  background: none;
+  text-decoration: none;
+  padding: 2%;
+  padding-inline: 8%;
+  color: hsl(0, 0%, 15%);
+  border: solid hsl(28, 98%, 90%) 1px;
+  border-color: hsl(28, 98%, 89%);
+  background-color: white;
+  border-radius: 0.9rem;
+  box-shadow: 5px 4px 5px hsl(28, 98%, 90%);
 }
 
 /*
 User Login/Create
 */
 .SignUp-Form {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 30vw;
-    height: 50vh;
-    text-align: center;
-    padding: 5%;
-    margin: 0% auto;
-    margin-top: 5%;
-    background-color: var(--Color1);
-    box-shadow: 10px 10px 10px var(--Color3);
-    font-size: var(--FontSize2);
-    letter-spacing: 0.05rem;
-    border-radius: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30vw;
+  height: 50vh;
+  text-align: center;
+  padding: 5%;
+  margin: 0% auto;
+  margin-top: 5%;
+  background-color: var(--Color1);
+  box-shadow: 10px 10px 10px var(--Color3);
+  font-size: var(--FontSize2);
+  letter-spacing: 0.05rem;
+  border-radius: 2rem;
 }
 .SignUp-Form h1 {
-    font-size: var(--FontSize7);
-    padding: 0%;
-    margin: 0% auto;
+  font-size: var(--FontSize7);
+  padding: 0%;
+  margin: 0% auto;
 }
 .SignUp-Form input,
 button {
-    border-radius: 4rem;
-    border: solid var(--Color1) 1px;
-    box-shadow: 5px 5px 5px var(--Color2);
-    padding: 2%;
-    margin: 2%;
+  border-radius: 4rem;
+  border: solid var(--Color1) 1px;
+  box-shadow: 5px 5px 5px var(--Color2);
+  padding: 2%;
+  margin: 2%;
 }
 .SignUp-Form button {
-    margin: 2%;
-    padding-inline: 10%;
-    font-size: var(--FontSize2);
-    color: whitesmoke;
-    font-weight: bold;
+  margin: 2%;
+  padding-inline: 10%;
+  font-size: var(--FontSize2);
+  color: whitesmoke;
+  font-weight: bold;
 }
 #Button-SignUp {
-    background-color: var(--ButtonColor1);
-    border: solid 1px var(--ButtonColor1);
+  background-color: var(--ButtonColor1);
+  border: solid 1px var(--ButtonColor1);
 }
 #Button-Cancel {
-    background-color: var(--ButtonColor3);
-    border: solid 1px var(--ButtonColor3);
+  background-color: var(--ButtonColor3);
+  border: solid 1px var(--ButtonColor3);
 }
 #Button-SignUp:hover {
-    background-color: var(--ButtonColor2);
-    border: solid 1px var(--ButtonColor2);
+  background-color: var(--ButtonColor2);
+  border: solid 1px var(--ButtonColor2);
 }
 #Button-Cancel:hover {
-    background-color: var(--ButtonColor4);
-    border: solid 1px var(--ButtonColor4);
+  background-color: var(--ButtonColor4);
+  border: solid 1px var(--ButtonColor4);
 }
 #Form-Headline {
-    font-size: var(--FontSize3);
-    font-weight: bold;
+  font-size: var(--FontSize3);
+  font-weight: bold;
 }
 
 body {
-    background: linear-gradient(-45deg, #ffffff, #cccccc, #a8a8a8, #a4a4a4);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    height: 100vh;
+  background: linear-gradient(-45deg, #ffffff, #cccccc, #a8a8a8, #a4a4a4);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
 }
 
 @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .Task_Container p {
-    padding: 0.5rem;
+  padding: 0.5rem;
 }
 .Task_Container-Status {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 .TC-Name {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 .TC-Description {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 .TC-Priority {
-    margin: 0% auto;
+  margin: 0% auto;
 }
 .TC-ButtonGroup {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 [class*="TC-Button-"] {
-    background: none;
-    text-decoration: none;
-    color: black;
-    padding: 1%;
-    padding-inline: 4%;
+  background: none;
+  text-decoration: none;
+  color: black;
+  padding: 1%;
+  padding-inline: 4%;
 }
 .Dashboard-Header {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
 }
 .Dashboard-Header p {
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.LF {
+  width: 100%;
+  margin: 0% auto;
+  text-align: center;
+}
+.LF-Paper {
+  width: 50%;
+  margin: 0% auto;
+}
+.LF-Form {
+  padding: 5%;
+  margin: 5%;
+}
+.LF-S1 {
+  display: flex;
+  flex-direction: column;
+  margin: 0% auto;
+  width: 70%;
+  justify-content: space-around;
+}
+.LF-S1 label {
+  text-align: left;
+  margin: 1%;
+}
+.LF-S2 {
+  width: 100%;
+}
+.LF-S2-Checkbox {
+  width: 50%;
+  margin: 0% auto;
+  text-align: center;
+}
+#outlined-basic {
+  padding: 2%;
+  margin: 0% auto;
+}
+
+.TF {
+  width: 100%;
+  margin: 0% auto;
+}
+.TF-Container {
+  width: 50%;
+  padding: 5%;
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  margin: 0% auto;
 }
