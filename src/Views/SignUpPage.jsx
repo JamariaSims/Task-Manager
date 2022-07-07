@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addTask } from "../Actions/Index";
-
-import { v4 as uuidv4 } from "uuid";
+import { createAccount } from "../Actions/Index";
 
 const initialState = {
     username: "",
     password: "",
     confirmedPassword: "",
-    userID: uuidv4(),
 };
 
-function SignUpPage() {
+function SignUpPage(props) {
     const [userInfo, setUserInfo] = useState(initialState);
 
     const onInputChange = (event) => {
@@ -21,6 +18,8 @@ function SignUpPage() {
     };
     const onInputSubmit = (event) => {
         event.preventDefault();
+        console.log(userInfo);
+        props.createAccount(userInfo);
     };
     const onInputReset = (event) => {
         event.preventDefault();
@@ -81,4 +80,4 @@ const mapStateToProps = (state) => {
         tasks: state.tasks,
     };
 };
-export default connect(mapStateToProps, { addTask })(SignUpPage);
+export default connect(mapStateToProps, { createAccount })(SignUpPage);
