@@ -6,10 +6,6 @@ import Dashboard from "./Dashboard";
 import LoginPage from "./LoginPage";
 
 function WalledGarden(props) {
-    useEffect(() => {
-        console.log(props.username);
-    }, [props.username]);
-    console.log(props.username);
     return <div>{!props.username ? <LoginPage /> : <Dashboard />}</div>;
 }
 

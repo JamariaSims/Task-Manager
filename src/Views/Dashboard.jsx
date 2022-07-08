@@ -1,15 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
+import { fetchUserData } from "../Actions/Index";
 import Tasks from "../Components/Tasks";
+import TaskForm from "./TaskForm";
 
-export const Dashboard = (props) => {
-  return (
-    <div>
-      <p>Dashboard</p>
-    </div>
-  );
+function Dashboard(props) {
+    props.fetchUserData(props.username);
+    return (
+        <div className="Dashboard_Container">
+            <p>Dashboard</p>
+            <TaskForm />
+            <Tasks />
+        </div>
+    );
+}
+
+const mapStateToProps = (state) => {
+    return {
+        username: state.username,
+    };
 };
 
-const mapStateToProps = (state) => ({});
-
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, { fetchUserData })(Dashboard);

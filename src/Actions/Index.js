@@ -32,20 +32,44 @@ export const PASSWORD_CORRECT = "PASSWORD_CORRECT";
 export const LOGIN_FAILED = "LOGIN_FAILED";
 export const LOGIN_SUCCEED = "LOGIN_SUCCEED";
 
-export const loginToServer = (userData) => {
-    console.log(userData);
+export const FETCH_USER_DATA = "FETCH_USER_DATA";
+export const FETCH_USER_DATA_FAILED = "FETCH_USER_DATA_FAILED";
+
+export const fetchUserData = (username) => (dispatch) => {
+    console.log(username);
     axios
-        .get(
-            `https://dreamengine-task-manager-api.herokuapp.com/api/users/${userData.username}`
-        )
+        .get(`http://localhost:3000/api/tasks/user/${username}`)
         .then((res) => {
-            console.log(res.body);
-            if (res.body !== null) {
+            console.log(res.data);
+            return dispatch({
+                type: FETCH_USER_DATA,
+                payload: res.data,
+            });
+        })
+        .catch((err) => {
+            return dispatch({
+                type: FETCH_USER_DATA_FAILED,
+                payload: err.data,
+            });
+        });
+};
+
+export const loginToServer = (props) => (dispatch) => {
+    console.log(props["username"]);
+    axios
+        .get(`http://localhost:3000/api/users/${props["username"]}`)
+        .then((res) => {
+            console.log(res.data.username);
+            if (res.data.username !== null) {
                 if (
-                    res.body.username === userData.username &&
-                    res.body.password === userData.password
+                    res.data.username === props.username &&
+                    res.data.password === props.password
                 ) {
-                    return { type: USERNAME_FOUND, payload: res.body };
+                    console.log("Username found and  password correct!");
+                    return dispatch({
+                        type: USERNAME_FOUND,
+                        payload: res.data,
+                    });
                 }
             }
             console.log("Username not found!");

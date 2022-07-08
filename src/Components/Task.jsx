@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import { completeTask, deleteTask } from "../Actions/Index";
 import { Link } from "react-router-dom";
 function Task(props) {
-  const { task } = props;
-
+    const { task } = props;
 
     const { name, description, deadline, priority, id, status } = task;
     const onDelete = () => {
@@ -14,7 +13,7 @@ function Task(props) {
         props.completeTask(id);
     };
     return (
-        <div className="Task_Container">
+        <div className="Task_Container" key={task._id}>
             <p id="TAG-ProjectName">Project Name:</p>
             <p className="TC-Name">{name}</p>
             <p id="TAG-Description">Description:</p>
@@ -39,8 +38,8 @@ function Task(props) {
     );
 }
 const mapStateToProps = (state) => {
-  return {
-    tasks: state.tasks,
-  };
+    return {
+        tasks: state.tasks,
+    };
 };
 export default connect(mapStateToProps, { deleteTask, completeTask })(Task);

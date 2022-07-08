@@ -4,6 +4,7 @@ import {
     ADD_TASK,
     COMPLETE_TASK,
     DELETE_TASK,
+    FETCH_USER_DATA,
     USERNAME_FOUND,
     USERNAME_NOT_FOUND,
 } from "../Actions/Index";
@@ -24,7 +25,12 @@ const Reducer = (state = initialState, action) => {
             return state;
         }
         case USERNAME_FOUND: {
+            console.log(action.payload);
             return { ...state, username: action.payload.username };
+        }
+        case FETCH_USER_DATA: {
+            console.log(action.payload);
+            return { ...state, tasks: action.payload };
         }
         case USERNAME_NOT_FOUND: {
             return state;
