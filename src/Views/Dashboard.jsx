@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { fetchUserData, fetchTasks } from "../Actions/Index";
-import Tasks from "../Components/Tasks";
-import TaskForm from "./TaskForm";
+import Tasks from "./Tasks";
+import TaskForm from "../Components/TaskForm";
 
 function Dashboard(props) {
-  const { username, fetchUserData } = props;
-  useEffect(() => {
-    fetchUserData(username);
-  }, [username]);
+  const { username } = props;
+  if (props.isLoggedIn === false) {
+    props.fetchUserData(username);
+  }
   return (
     <div className="Dashboard_Container">
       <h1>Dashboard</h1>
@@ -23,6 +23,7 @@ const mapStateToProps = (state) => {
   return {
     username: state.username,
     tasks: state.tasks,
+    isLoggedIn: state.isLoggedIn,
   };
 };
 

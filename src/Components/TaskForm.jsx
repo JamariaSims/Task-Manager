@@ -18,7 +18,6 @@ export const TaskForm = (props) => {
     deadline: "",
     priority: "normal",
     status: "available",
-    group_name: "none",
     created_by: props.username || "None",
   });
   // Input Controller
@@ -30,7 +29,9 @@ export const TaskForm = (props) => {
 
   // When User Submit Form
   const onInputSubmit = (event) => {
+    event.preventDefault();
     props.addTask(task);
+    onInputReset();
   };
 
   // Reset The Form
@@ -41,7 +42,6 @@ export const TaskForm = (props) => {
       deadline: "",
       priority: "normal",
       status: "available",
-      group_name: "none",
       created_by: props.userId || "None",
     });
   };
@@ -101,41 +101,14 @@ export const TaskForm = (props) => {
               <MenuItem value="critical">Critical</MenuItem>
             </Select>
           </>
-
-          <>
-            <InputLabel id="status">Status</InputLabel>
-            <Select
-              id="status"
-              name="status"
-              value={task.status}
-              onChange={onInputChange}
-            >
-              <MenuItem value="available">Available</MenuItem>
-              <MenuItem value="in_progress">In Progress</MenuItem>
-              <MenuItem value="completed">Completed</MenuItem>
-            </Select>
-          </>
-          <>
-            <InputLabel id="group_name">Group Name</InputLabel>
-            <Select
-              id="group_name"
-              name="group_name"
-              value={task.group_name}
-              onChange={onInputChange}
-            >
-              <MenuItem value="none">None</MenuItem>
-            </Select>
-          </>
-          <>
-            <InputLabel id="created_by">Created By</InputLabel>
-            <p>none</p>
-          </>
-
+          <br></br>
           <ButtonGroup>
             <Button color="success" type="submit">
               Add
             </Button>
-            <Button color="error">Cancel</Button>
+            <Button color="error" onClick={onInputReset}>
+              Cancel
+            </Button>
           </ButtonGroup>
         </Paper>
       </div>

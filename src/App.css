@@ -401,3 +401,15 @@ body,
   display: none;
   color: #079f16;
 }
+.available_Container,
+.inProgress_Container,
+.completed_Container {
+  margin: 5% auto;
+  padding: 3rem;
+  border: #d7d7d7 1px solid;
+  border-radius: 1rem;
+}
+.Center {
+  margin: 0% auto;
+  text-align: center;
+}
