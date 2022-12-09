@@ -1,13 +1,12 @@
-import axios, { Axios } from "axios";
 import {
   ADD_ACCOUNT,
   ADD_ACCOUNT_FAILED,
   ADD_TASK,
-  COMPLETE_TASK,
   DELETE_TASK,
   FETCH_USER_DATA,
   USERNAME_FOUND,
   USERNAME_NOT_FOUND,
+  CHANGE_TASK_STATUS,
 } from "../Actions/Index";
 
 export const initialState = {
@@ -18,7 +17,7 @@ export const initialState = {
 };
 
 const Reducer = (state = initialState, action) => {
-  const { tasks, completedTasks } = state;
+  const { tasks } = state;
   switch (action.type) {
     case ADD_ACCOUNT: {
       console.log("Adding user!");
@@ -31,7 +30,6 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         username: action.payload.username,
-        _id: action.payload._id,
       };
     }
     case FETCH_USER_DATA: {
@@ -41,7 +39,7 @@ const Reducer = (state = initialState, action) => {
         return created_by === state.username;
       });
 
-      return { ...state, tasks: taskList };
+      return { ...state, tasks: taskList, isLoggedIn: true };
     }
     case USERNAME_NOT_FOUND: {
       return { ...state, errorState: "" };
@@ -49,6 +47,14 @@ const Reducer = (state = initialState, action) => {
     case ADD_TASK: {
       return { ...state, tasks: [...tasks, action.payload] };
     }
+    case CHANGE_TASK_STATUS: {
+      const updatedTasks = tasks.filter((task) => {
+        return task._id !== action.payload._id;
+      });
+      updatedTasks.push(action.payload);
+      return { ...state, tasks: updatedTasks };
+    }
+
     case DELETE_TASK: {
       const updatedTasks = tasks.filter((task) => {
         console.log(task, task._id, action.payload);
@@ -56,15 +62,6 @@ const Reducer = (state = initialState, action) => {
       });
       console.log(updatedTasks);
       return { ...state, tasks: updatedTasks };
-    }
-
-    case COMPLETE_TASK: {
-      const currentTask = tasks.find((task) => {
-        return task._id === action.payload;
-      });
-      currentTask["status"] = "Complete";
-
-      return state;
     }
 
     default:

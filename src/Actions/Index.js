@@ -1,31 +1,21 @@
+import fetchApiService from "../Services/fetchApiService";
+
 const axios = require("axios");
 
 /* ---------------------------------- LOGIN --------------------------------- */
 export const USERNAME_NOT_FOUND = "USERNAME_NOT_FOUND";
 export const USERNAME_FOUND = "USERNAME_FOUND";
 export const loginToServer = (props) => (dispatch) => {
-  axios
-    .get(`http://localhost:3000/api/users/${props["username"]}`)
+  fetchApiService(`GET`, `/users/${props.username}`)
     .then((res) => {
-      console.log(res.data.username);
-      if (res.data.username !== null) {
-        if (
-          res.data.username === props.username &&
-          res.data.password === props.password
-        ) {
-          console.log(`Username found and password correct!`);
-          return dispatch({
-            type: USERNAME_FOUND,
-            payload: res.data,
-          });
-        }
+      if (props.password === res.data.password) {
+        dispatch({ type: USERNAME_FOUND, payload: res.data });
+      } else {
+        console.log("incorrect password");
       }
-      console.log("Password incorrect!");
-      return { type: PASSWORD_INCORRECT };
     })
     .catch((err) => {
       console.log(err);
-      return { type: USERNAME_NOT_FOUND };
     });
 };
 /* ----------------------------- CREATE ACCOUNT ----------------------------- */
@@ -76,15 +66,15 @@ export const fetchUserData = (username) => (dispatch) => {
 };
 /* -------------------------------- ADD TASK -------------------------------- */
 export const ADD_TASK = "ADD_TASK";
-export const addTask = (task) => {
-  console.log(task);
+export const addTask = (task) => (dispatch) => {
   axios
     .post(`http://localhost:3000/api/tasks/`, task)
     .then((res) => {
-      return {
+      task = res.data;
+      return dispatch({
         type: ADD_TASK,
         payload: task,
-      };
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -104,13 +94,26 @@ export const deleteTask = (id) => {
   console.log(DELETE_TASK, id);
   return { type: DELETE_TASK, payload: id };
 };
-/* ------------------------------ COMPLETE TASK ----------------------------- */
-export const COMPLETE_TASK = "COMPLETE_TASK";
-export const completeTask = (id) => {
-  console.log(COMPLETE_TASK, id);
-  return { type: COMPLETE_TASK, payload: id };
+/* ------------------------------- CHANGE TASK STATUS ------------------------------ */
+export const CHANGE_TASK_STATUS = "CHANGE_TASK_STATUS";
+const AVAILABLE = "available";
+const IN_PROGRESS = "in_progress";
+const COMPLETED = "completed";
+const ARCHIVE = "archive";
+export const changeTaskStatus = (task) => (dispatch) => {
+  task.status === AVAILABLE
+    ? (task.status = IN_PROGRESS)
+    : task.status === IN_PROGRESS
+    ? (task.status = COMPLETED)
+    : (task.status = ARCHIVE);
+  console.log(task, " Alert");
+  console.log(task._id);
+  fetchApiService("PUT", `/tasks/${task._id}`, task)
+    .then((res) => {
+      console.log(res);
+      dispatch({ type: CHANGE_TASK_STATUS, payload: task });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
-
-export const PASSWORD_CORRECT = "PASSWORD_CORRECT";
-export const LOGIN_FAILED = "LOGIN_FAILED";
-export const LOGIN_SUCCEED = "LOGIN_SUCCEED";

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { completeTask, deleteTask } from "../Actions/Index";
+import { deleteTask } from "../Actions/Index";
 
 function TaskDisplay(props) {
   const { tasks } = props;
@@ -15,10 +15,6 @@ function TaskDisplay(props) {
   });
   const onDelete = () => {
     props.deleteTask(_id);
-  };
-  const onTaskComplete = () => {
-    currentTask.status = "Completed";
-    props.completeTask(_id);
   };
   const onTaskEdit = () => {
     props.completeTask(_id);
@@ -36,7 +32,6 @@ function TaskDisplay(props) {
           Delete
         </Link>
         <button onClick={onTaskEdit}>Edit</button>
-        <button onClick={onTaskComplete}>Complete</button>
       </div>
     </div>
   );
@@ -47,6 +42,4 @@ const mapStateToProps = (state) => {
     tasks: state.tasks,
   };
 };
-export default connect(mapStateToProps, { deleteTask, completeTask })(
-  TaskDisplay
-);
+export default connect(mapStateToProps, { deleteTask })(TaskDisplay);
